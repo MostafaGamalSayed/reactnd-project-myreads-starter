@@ -1,7 +1,8 @@
 # About
 
 MyReads is a bookshelf app that allows us to add, select and categorize books that we have read, currently reading, or want to read. 
-It's developed using React Framework. "react-router-dom" library is used in this project
+It's developed using React Framework. "react-router-dom" library is used in this project.
+This is the final assessment project for Udacity's React Fundamentals course
 
 ## Installation and Usage
 
