@@ -16,12 +16,14 @@ class ListBooks extends Component {
     this.initialize();
   }
 
+  filterBooksByShelf = (books, shelf) => (books.filter(book => (book.shelf === shelf)))
+
   initialize = () => {
     getAll().then(books => {
       this.setState({
-        currentlyReadingBooks: books.filter(book => (book.shelf === 'currentlyReading')),
-        wantToReadBooks: books.filter(book => (book.shelf === 'wantToRead')),
-        readBooks: books.filter(book => (book.shelf === 'read'))
+        currentlyReadingBooks: this.filterBooksByShelf(books, 'currentlyReading'),
+        wantToReadBooks: this.filterBooksByShelf(books, 'wantToRead'),
+        readBooks: this.filterBooksByShelf(books, 'read')
       });
     })
   }
