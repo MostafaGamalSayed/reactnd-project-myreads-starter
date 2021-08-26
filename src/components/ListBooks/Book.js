@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { get } from "../../BooksAPI";
+import ShelfChanger from "./ShelfChanger";
 
 class Book extends Component {
 
@@ -36,15 +37,10 @@ class Book extends Component {
           <div className="book">
             <div className="book-top">
               <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${thumbnailUrl}")` }}></div>
-              <div className="book-shelf-changer">
-                <select defaultValue={book.shelf} onChange={this.handleShelfUpdate}>
-                  <option value="move" disabled>Move to...</option>
-                  <option value="currentlyReading">Currently Reading</option>
-                  <option value="wantToRead">Want to Read</option>
-                  <option value="read">Read</option>
-                  <option value="none">None</option>
-                </select>
-              </div>
+              <ShelfChanger
+                book={book}
+                handleShelfUpdate={this.handleShelfUpdate}
+              />
             </div>
             <div className="book-title">{ book.title }</div>
             <div className="book-authors">{ book.hasOwnProperty('authors') ? book.authors[0] : '' }</div>
